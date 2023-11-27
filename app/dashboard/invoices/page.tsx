@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>Dashboard Invoices</div>;
+  return <div>Dashboard/Invoices</div>;
 }

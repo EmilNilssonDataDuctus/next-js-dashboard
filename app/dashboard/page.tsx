@@ -3,9 +3,9 @@ export default function Page() {
     <div>
       Dashboard
       <br />
-      <a href="dashboard/customers">customers</a>
-      <br />
       <a href="dashboard/invoices">invoices</a>
+      <br />
+      <a href="dashboard/customers">customers</a>
     </div>
   );
 }
