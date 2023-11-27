@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} anitaliased`}>{children}</body>
+      <body className={`${inter.className} font-sans anitaliased`}>{children}</body>
     </html>
   );
 }
