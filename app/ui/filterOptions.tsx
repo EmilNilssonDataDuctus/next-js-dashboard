@@ -6,8 +6,8 @@ export default function FilterOptions() {
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const { replace } = useRouter();
-  const params = new URLSearchParams(searchParams);
 
+  // TODO: Fix bug where clicking both and unclicking one does the opposite of what you want
   const handleToggleFilter = (filterOption: string) => {
     if (filterOption === 'paid') {
     }
