@@ -5,9 +5,9 @@ import {
   CustomerField,
   CustomersTable,
   InvoiceForm,
-  InvoicesTable,
   LatestInvoiceRaw,
   Revenue,
+  TInvoicesTable,
   User,
 } from './definitions';
 import { formatCurrency } from './utils';
@@ -104,7 +104,7 @@ export async function fetchFilteredInvoices(
 console.log(query);
 
   try {
-    const invoices = await sql<InvoicesTable>`
+    const invoices = await sql<TInvoicesTable>`
       SELECT
         invoices.id,
         invoices.amount,
