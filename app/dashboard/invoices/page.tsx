@@ -1,5 +1,6 @@
 import { fetchInvoicesPages } from '@/app/lib/data';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
+import FilterOptions from '@/app/ui/filterOptions';
 import { lusitana } from '@/app/ui/fonts';
 import { CreateInvoice } from '@/app/ui/invoices/buttons';
 import Pagination from '@/app/ui/invoices/pagination';
@@ -17,6 +18,7 @@ export default async function Page({
   searchParams?: {
     query?: string;
     page?: string;
+    filterQuery?: 'paid' | 'pending';
   };
 }) {
   const query = searchParams?.query || '';
@@ -31,12 +33,19 @@ export default async function Page({
         <Search placeholder="Search invoices..." />
         <CreateInvoice />
       </div>
+      <div>
+        <FilterOptions />
+      </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-4">
         <Suspense
           key={query + currentPage}
           fallback={<InvoicesTableSkeleton />}
         >
-          <InvoicesTable query={query} currentPage={currentPage} />
+          <InvoicesTable
+            query={query}
+            currentPage={currentPage}
+            filterQuery={searchParams?.filterQuery}
+          />
         </Suspense>
         <Suspense fallback={<LatestInvoicesSkeleton width={1} entries={4} />}>
           <LatestInvoices width={1} entries={4} />
