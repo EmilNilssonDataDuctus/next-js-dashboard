@@ -9,6 +9,7 @@ import LatestInvoices from '../../ui/dashboard/latest-invoices';
 import RevenueChart from '../../ui/dashboard/revenue-chart';
 import { lusitana } from '../../ui/fonts';
 
+// The suspense components in this file are overwriting the content inside loading.tsx
 export default async function Page() {
   return (
     <main>
