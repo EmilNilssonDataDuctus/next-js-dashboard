@@ -7,18 +7,13 @@ import InvoiceStatus from '@/app/ui/invoices/status';
 export default async function InvoicesTable({
   query,
   currentPage,
-  filterQuery
+  filterQuery,
 }: {
   query: string;
   currentPage: number;
-  filterQuery?: 'paid' | 'pending'
+  filterQuery?: 'paid' | 'pending';
 }) {
-
-  const invoices = await fetchFilteredInvoices(
-    query,
-    currentPage,
-    filterQuery
-  );
+  const invoices = await fetchFilteredInvoices(query, currentPage, filterQuery);
 
   return (
     <div className={`flex w-full flex-col md:col-span-2 lg:col-span-3`}>
