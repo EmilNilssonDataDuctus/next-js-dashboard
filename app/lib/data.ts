@@ -2,9 +2,13 @@ import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
 
 import {
+  CustomerField,
+  CustomersTable,
+  InvoiceForm,
   LatestInvoiceRaw,
   Revenue,
-  TInvoicesTable
+  TInvoicesTable,
+  User,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -90,8 +94,6 @@ export async function fetchCardData() {
   }
 }
 
-
-
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredInvoices(
   query: string,
@@ -135,7 +137,7 @@ export async function fetchFilteredInvoices(
 export async function fetchInvoicesPages(
   query: string,
   filterQuery?: 'paid' | 'pending',
-  ) {
+) {
   noStore();
   try {
     const count = await sql`SELECT COUNT(*)
