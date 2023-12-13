@@ -36,7 +36,10 @@ export async function createInvoice(prevState: State, formData: FormData) {
     amount: formData.get('amount'),
     status: formData.get('status'),
   });
-  if (!validatedFields) {
+  console.log('validatedFields');
+  console.log(validatedFields);
+
+  if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: 'Missing Fields. Failed to Create Invoice',
