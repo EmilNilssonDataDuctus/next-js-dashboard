@@ -1,3 +1,4 @@
+import { sql } from '@vercel/postgres';
 import bcrypt from 'bcrypt';
 import NextAuth from 'next-auth';
 import credentials from 'next-auth/providers/credentials';
